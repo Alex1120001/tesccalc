@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        
+
+        .wrap-fQq42 {
+            width: 85%;
+            margin: auto;
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }
+
+        .title-fQq42 h1 {
+            font-size: 38px;
+            text-align: center;
+        }
+
+        .description-title-fQq42 p {
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .form-fQq42 {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            margin: 20px auto;
+        }
+
+        .form-fQq42 p {
+            font-size: 20px;
+        }
+
+        .input-fQq42 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-fQq42 input {
+            margin-top: 10px;
+            height: 35px;
+            outline: none;
+            padding: 0px 5px;
+            border:1px solid #333;
+        }
+
+        .input-fQq42 span {
+            font-size: 14px;
+            color: rgb(114, 114, 114);
+        }
+
+        .demo-fQq42 {
+            font-weight: bolder;
+        }
+
+        .form-fQq42 .btn-fQq42 {
+            height: 50px;
+            font-size: 20px;
+            color: #333;
+            background-color: rgb(254, 220, 11);
+            border: none;
+            width: 250px;
+            margin: 30px auto 0px;
+        }
+
+        .political-fQq42 {
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .description-title-fQq42 p {
+            width: 60%;
+            margin: auto;
+        }
+        .enter-fQq42{
+            margin-top: 20px;
+        }
+        .radio-fQq42{
+            display: flex;
+            align-items: center;
+        }
+        .radio-fQq42 input{
+            width: 20px;
+            margin-right: 20px;
+        }
+        .radio-fQq42+.radio-fQq42{
+            margin-top: 10px;
+        }
+       
+        @media (max-width: 700px) {
+            .form-fQq42 {
+                width: 100%;
+            }
+
+            .title-fQq42 h1 {
+                font-size: 24px;
+            }
+
+            .description-title-fQq42 p {
+                font-size: 18px;
+                width: 100%;
+            }
+
+            .form-fQq42 p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <div class="wrap-fQq42">
+        <div class="title-fQq42">
+            <h1>Як порахувати необхідну кількість панелей?</h1>
+        </div>
+        <div class="description-title-fQq42">
+            <p>Для розрахунку необхідно вибрати розмір панелі, вказати ширину та довжину поверхні на яку хочете
+                поклеїти панелі
+            </p>
+        </div>
+        <form class="form-fQq42" action="./telegram.php" method="POST">
+            <div class="type-panel-fQq42">
+                <p>Виберіть розмір панелі</p>
+                <div class="radio-fQq42">
+                    <input oninput="input1()" type="radio" value="0.49" name="radio">
+                    <span>700*700 мм</span>
+                </div>
+                <div class="radio-fQq42">
+                    <input oninput="input1()" type="radio" value="0.539" checked name="radio">
+                    <span>700*770 мм</span>
+                </div>
+            </div>
+            <div class="input-fQq42">
+                <p>Довжина поверхні в метрах</p>
+                <span>Введіть довжину поверхні, на яку хочете поклеїти панелі (наприклад: 1,57)</span>
+                <input type="number" name="width" step="any" value="4" placeholder="1" class="input1" oninput="input1()" required>
+            </div>
+            <div class="input-fQq42">
+                <p>Ширина поверхні в метрах</p>
+                <span>Введіть ширину поверхні, на яку хочете поклеїти панелі (наприклад: 1,57)</span>
+                <input type="number" name="height" step="any" class="input2"  value="2" oninput="input1()" placeholder="2"
+                    required>
+            </div>
+            <div class="enter-fQq42">
+                <p>Вам потрібно</p>
+                <p class="demo" name="amount">20 панелей</p>
+            </div>
+            <div class="input-fQq42">
+                <p>Ваше ім'я</p>
+                <input type="text" name="name" required>
+            </div>
+            <div class="input-fQq42">
+                <p>Ваш телефон</p>
+                <input type="text" name="phone" required>
+            </div>
+            <button class="btn-fQq42">Надіслати</button>
+            <p class="political-fQq42">Натискаючи на кнопку, ви даєте згоду на обробку персональних даних та погоджуєтесь з
+                політикою конфіденційності</p>
+        </form>
+    </div>
+    <script>
+        function input1() {
+            let input1 = document.querySelector('.input1').value;
+            let input2 = document.querySelector('.input2').value;
+            let rad = document.querySelector('[name="radio"]:checked').value;
+            let score = parseFloat(rad);
+
+            let square = (input2 * input1) / score;
+
+            let demo = document.querySelector('.demo');
+            demo.innerHTML = square.toFixed(1) + ' ' + 'панелей';
+        }
+    </script>
+</body>
+
+</html>
